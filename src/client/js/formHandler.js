@@ -10,7 +10,7 @@ async function handleSubmit(event) {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({url: formText})
+        body: JSON.stringify({text: formText})
     })
     .then(res => res.json())
     .then(function(res) {

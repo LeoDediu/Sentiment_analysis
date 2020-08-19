@@ -24,7 +24,7 @@ app.use(express.static('dist'))
 //Routes
 app.post('/meaning', async function(req, res) {
     console.log(req)
-    let full_link = `https://api.meaningcloud.com/sentiment-2.1?key=${api_key}&lang=en&txt=${req.body.formText}&model=general`
+    let full_link = `https://api.meaningcloud.com/sentiment-2.1?key=${api_key}&lang=en&txt=${req.body.text}&model=general`
 	const meaning = await fetch (full_link)
 	try {
         const receivedData = await meaning.json();
