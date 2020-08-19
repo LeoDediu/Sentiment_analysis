@@ -4,24 +4,37 @@ async function handleSubmit(event) {
     let formText = document.getElementById('name').value;
     console.log(formText);
 
-    const api_response = await fetch("http://localhost:8081/meaning", {
-        method: "POST",
-        mode: "cors",
+    fetch('http://localhost:8081/meaning', {
+        method: 'POST',
+        credentials: 'same-origin',
         headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
+            'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formText),
+        body: JSON.stringify({url: formText})
     })
-    try {
-        const data = await api_response.json();
-        console.log(data);
-        const newElement = document.createElement('div');
-        newElement.innerHTML = `<div>${data}</div>`;
-        document.getElementById('results').appendChild(newElement);
-    } catch (error) {
-        console.log('error', error);
-    }
+    .then(res => res.json())
+    .then(function(res) {
+        console.log(res);
+    });
+
+    // const api_response = await fetch("http://localhost:8081/meaning", {
+    //     method: "POST",
+    //     mode: "cors",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //         "Access-Control-Allow-Origin": "*",
+    //     },
+    //     body: JSON.stringify(formText),
+    // })
+    // try {
+    //     const data = await api_response.json();
+    //     console.log(data);
+    //     const newElement = document.createElement('div');
+    //     newElement.innerHTML = `<div>${data}</div>`;
+    //     document.getElementById('results').appendChild(newElement);
+    // } catch (error) {
+    //     console.log('error', error);
+    // }
 
 }
 

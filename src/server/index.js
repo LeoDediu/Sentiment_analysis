@@ -5,6 +5,7 @@ const mockAPIResponse = require('./mockAPI.js')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const fetch = require('node-fetch')
+const request = require('request')
 
 //MeaningCloud API
 dotenv.config()
