@@ -10,7 +10,7 @@ const request = require('request')
 //MeaningCloud API
 dotenv.config()
 const api_key = process.env.API_KEY;
-console.log(`API key = ${api_key}`);
+//console.log(`API key = ${api_key}`);
 
 const app = express()
 
